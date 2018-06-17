@@ -72,34 +72,44 @@ def generateAxisMap(energy):
 	return axis_map
 
 
-def calculateSeams(axis_map):
+def calculateSeams(value_map):
 
-	(rows, columns) = axis_map.shape[:2]
-	axis_map = np.int_(axis_map)
+	(rows, columns) = value_map.shape[:2]
+	axis_map = np.int_(value_map)
 
 	print(rows)
 	print(columns)
 
-	print(axis_map[-1])
 	logSeperate("#--Seperator--#\n")
+	print("ValueMap:")
+	print(value_map[-1])
 
-	seam = np.zeros(rows)
-	current_active_column = np.argmin(axis_map[-1]) #find index of minimum value from last entry of axis map
-	seam_cost = 0
-	seam[-1] = current_active_column #copy index of active index into seam matrix
+	seam = np.zeros(rows) #matrix of zeros
+	current_active_column = np.argmin(value_map[-1]) #find index of minimum value from last column of axis map
 	
-	print(seam)
+	seam_cost = 0
+	seam[-1] = current_active_column #copy index of active index into last cell of seam matrix
+	
 	logSeperate("#--Seperator--#\n")
+	print("Seam:")
+	print(seam)
 
-	print(axis_map[rows-1][current_active_column])
+	#print(value_map[rows-1][current_active_column])
 
-	seam_cost += axis_map[rows-1][current_active_column]
+	seam_cost += value_map[rows-1][current_active_column] #gets the minimum value from its index
+
+	logSeperate("#--Seperator--#\n")
+	print("Initial Seam Cost:")
 	print(seam_cost)
 
-	for row in range(rows-2, -1, -1):
-		print(seam[row+1])
+	for row in range(rows-2, -1, -1): #traversing in reverse direction x, x-1, x-2 ..
+		print(seam[row+1]) #
+		print(seam[row])
 		if seam[row+1] == 0:
-			pass
+			min_values = (value_map[row][current_active_column], value_map[row][current_active_column+1])
+			seam[row] = np.argmin(min_values)
+			current_active_column = np.argmin(min_values)
+			
 
 
 
