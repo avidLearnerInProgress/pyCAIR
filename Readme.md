@@ -28,9 +28,10 @@
 
 ## ![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/gray.jpg)  
 ## ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/energy.jpg)  
-## ![Result3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/column_cropped.jpg)  
-## ![Result4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/columns_seams.jpg)  
-## ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/row_cropped.jpg)  
-## ![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/row_seams.jpg)  
+## ![Result3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/column_seams.jpg)  
+## ![Result4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/column_cropped.jpg)  
+## ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/row_seams.jpg)  
+## ![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/65bf2632/results/row_cropped.jpg)  
+
 
 
