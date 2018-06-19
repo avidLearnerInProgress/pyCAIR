@@ -79,10 +79,8 @@ Seam: reduce image size and thereby achieve 'content-aware resizing'
 											 (T(r, c-1) + E(s^y(In-r X m-c-1)))
 
 '''
-import os
+import os, sys, cv2, argparse
 import numpy as np
-import sys
-import cv2
 from scipy.ndimage.filters import convolve
 from tqdm import trange
 from PIL import Image
@@ -176,42 +174,79 @@ def carve(image):
 	return image
 
 
-def cropByColumn(image, display_seams, scale_c):
+def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5):
 
 	rows, columns, _ = image.shape
-	
+
 	newcolumns = int(columns * scale_c)
 	
 	crop = image.copy()
 
 	if display_seams == 0:
+		a = 0
+		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\cropseq\\'))
 		for i in trange(columns - newcolumns):
-			crop = carve(crop)
+			if generate == 1:
+				if i % 5 == 0:
+					crop = carve(crop)
+					writeImageG(crop, 'cropped_'+str(i), lsit[1], lsit[0], a)
+				else:
+					pass
+			else:
+				crop = carve(crop)
+
 		return crop
 
 	else:
+		a = 0
+		b = 1
+		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\seamseq\\'))
+		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\cropseq\\'))
 		for i in trange(columns - newcolumns):
-			#give me a way to parallelize this portion of code :|
-			image = drawSeam(image) 
-			crop = carve(crop)
+			if generate == 1:
+				#give me a way to parallelize this portion of code :|
+				if i % 5 == 0:
+					image = drawSeam(image) 
+					crop = carve(crop)
+					writeImageG(image, 'seamed_'+str(i), lsit[1], lsit[0], b)
+					writeImageG(crop, 'cropped_'+str(i), lsit[1], lsit[0], a)
+				else:
+					pass
+			else:
+				image = drawSeam(image) 
+				crop = carve(crop)
+
 		return image, crop
 
 
-def cropByRow(image, display_seams, scale_r):
+def cropByRow(image, display_seams, generate = 0, lsit = None, scale_r = 0.5):
 
     image = np.rot90(image, 1, (0, 1))
-    seam_image, crop_image = cropByColumn(image, display_seams, scale_r)
+    seam_image, crop_image = cropByColumn(image, display_seams, generate, lsit, scale_r)
     crop_image = np.rot90(crop_image, 3, (0, 1))
     seam_image = np.rot90(seam_image, 3, (0, 1))
     
     return seam_image, crop_image
 
 
-def writeImage(image, args):
+def writeImage(image, args = None):
 	name = 'results/' + str(args[2]) + '/' + str(args[0]) + '.' + str(args[1])
-	print(name)
 	cv2.imwrite(name, image)
 	cv2.destroyAllWindows()
+
+
+#if without seams, then only cropped images are flushed to disk
+#if with seam and cropping, then only seam images are flushed to disk
+def writeImageG(image, cname, extension, filename, switch):
+	if switch == 0:
+		insert = 'cropseq'
+	else:
+		insert = 'seamseq'
+
+	name = 'sequences/' + filename + '/' + insert + '/' + cname + '.' + extension
+	#print("\n"+str(name))
+	cv2.imwrite(name, image)
+
 
 def createFolder(directory):
 	if not os.path.exists(directory):
@@ -233,52 +268,51 @@ def generateEnergyMap(image, file_extension, file_name):
 	writeImage(output, ['energy', file_extension, file_name])
 
 
-def main():
-	#usr inpt
-	toggle = int(sys.argv[1])
-	scale = float(sys.argv[2])
-	display_seams = int(sys.argv[3])
-	_in = sys.argv[4]
+def main(argsip):
 
+	#usr inpt
+	toggle = argsip.a
+	scale = argsip.s
+	display_seams = argsip.d
+	_in = argsip.i
+	g = argsip.g
 
 	image = cv2.imread(_in)
 	file_extension, file_name = getFileExtension(_in)
-	print(file_extension + " " + file_name)
+	#print(file_extension + " " + file_name)
 	root = os.getcwd() + str('\\results\\')
 	createFolder(root + file_name)
 	generateEnergyMap(image, file_extension, file_name)
-
 	image_ = image.copy()
-
-	#writeImage(image, ['original', file_extension, file_name])
+	lsit = [file_name, file_extension]
 
 	if toggle == 0:
 		#cropbycol
 		if display_seams == 1:
-			seam_image, crop_image = cropByColumn(image, display_seams, scale)
+			seam_image, crop_image = cropByColumn(image, display_seams, g, lsit, scale)
 			writeImage(seam_image, ['column_seams', file_extension, file_name])
 			writeImage(crop_image, ['column_cropped', file_extension, file_name])
 			
 		else:
-			crop_image = cropByColumn(image, display_seams, scale)
+			crop_image = cropByColumn(image, display_seams, g, lsit, scale)
 			writeImage(crop_image, ['column_cropped', file_extension, file_name])
 
 	elif toggle == 1:
 		#cropbyrow
 		if display_seams == 1:
-			seam_image, crop_image = cropByRow(image, display_seams, scale)
+			seam_image, crop_image = cropByRow(image, display_seams, g, lsit, scale)
 			writeImage(seam_image, ['row_seams', file_extension, file_name])
 			writeImage(crop_image, ['row_cropped', file_extension, file_name])
 
 		else:
-			crop_image = cropByRow(image, display_seams, scale)
+			crop_image = cropByRow(image, display_seams, g, lsit, scale)
 			writeImage(crop_image, ['row_cropped', file_extension, file_name])
 
 	elif toggle == 2:
 		#cropbyrow&column
 		if display_seams == 1:
-			seam_col, crop_col = cropByColumn(image, display_seams, scale)
-			seam_row, crop_row = cropByRow(image_, display_seams, scale)
+			seam_col, crop_col = cropByColumn(image, display_seams, g, lsit, scale)
+			seam_row, crop_row = cropByRow(image_, display_seams, g, lsit, scale)
 
 			writeImage(seam_col, ['column_seams', file_extension, file_name])
 			writeImage(seam_row, ['row_seams', file_extension, file_name])
@@ -287,8 +321,8 @@ def main():
 			
 		else:
 
-			crop_col = cropByColumn(image, display_seams, scale)
-			crop_row = cropByRow(image, display_seams, scale)
+			crop_col = cropByColumn(image, display_seams, g, scale)
+			crop_row = cropByRow(image, display_seams, g, scale)
 			writeImage(crop_row, ['row_cropped', file_extension, file_name])
 			writeImage(crop_col, ['column_cropped', file_extension, file_name])
 	else:
@@ -296,4 +330,32 @@ def main():
 		exit()
 
 if __name__ == '__main__':
-	main()
+	parser = argparse.ArgumentParser()
+	parser.add_argument('-a',
+						type = int,
+						help = "Alignment of Seam (Vertical/Horizontal/Both) : (0/1/2)",
+						required = True)
+
+	parser.add_argument('-s',
+						type = float,
+						help = "Scale aspect ratio between 0 and 1",
+						default = 0.5,
+						required = False)
+
+	parser.add_argument('-d',
+						type = int,
+						help = "Display Seams or not : (0/1)",
+						required = True)
+
+	parser.add_argument('-i',
+						type = str,
+						help = "Path to source image",
+						required = True)
+
+	parser.add_argument('-g',
+						type = int,
+						help = "Generate video from sequence of images : (0/1)",
+						required = False)
+
+	argsip = parser.parse_args()
+	main(argsip)
