@@ -250,6 +250,7 @@ def main():
 
 	image_ = image.copy()
 
+	#writeImage(image, ['original', file_extension, file_name])
 
 	if toggle == 0:
 		#cropbycol
