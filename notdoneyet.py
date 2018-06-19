@@ -187,8 +187,8 @@ def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5)
 		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\cropseq\\'))
 		for i in trange(columns - newcolumns):
 			if generate == 1:
+				crop = carve(crop)
 				if i % 5 == 0:
-					crop = carve(crop)
 					writeImageG(crop, 'cropped_'+str(i), lsit[1], lsit[0], a)
 				else:
 					pass
@@ -205,9 +205,9 @@ def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5)
 		for i in trange(columns - newcolumns):
 			if generate == 1:
 				#give me a way to parallelize this portion of code :|
-				if i % 5 == 0:
-					image = drawSeam(image) 
-					crop = carve(crop)
+				image = drawSeam(image) 
+				crop = carve(crop)
+				if i % 5 == 0:	
 					writeImageG(image, 'seamed_'+str(i), lsit[1], lsit[0], b)
 					writeImageG(crop, 'cropped_'+str(i), lsit[1], lsit[0], a)
 				else:
