@@ -9,10 +9,9 @@
 - [x] Get Horizontal Seams 
 - [x] Crop Columns 
 - [x] Crop Rows 
-- [ ] Use Argparse for Command Line Application 
-- [ ] Store subsamples in different directories for crop and seam respectively 
+- [x] Use Argparse for Command Line Application 
+- [x] Store subsamples in different directories for crop and seam respectively 
 - [ ] Generate video/gif from sub-samples 
-- [ ] GUI (doubtful :|) 
 - [ ] Deploy as module
 
 ### Notes:
