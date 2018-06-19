@@ -79,6 +79,7 @@ Seam: reduce image size and thereby achieve 'content-aware resizing'
 											 (T(r, c-1) + E(s^y(In-r X m-c-1)))
 
 '''
+import os
 import numpy as np
 import sys
 import cv2
@@ -86,8 +87,6 @@ from scipy.ndimage.filters import convolve
 from tqdm import trange
 from PIL import Image
 from scipy.ndimage import rotate
-
-
 
 def getEnergy(image):
 	
@@ -209,24 +208,29 @@ def cropByRow(image, display_seams, scale_r):
 
 
 def writeImage(image, args):
-	print(args[0])
-	print(args[1])
-	cv2.imwrite('results/' + str(args[0]) + '.' + str(args[1]), image)
+	name = 'results/' + str(args[2]) + '/' + str(args[0]) + '.' + str(args[1])
+	print(name)
+	cv2.imwrite(name, image)
 	cv2.destroyAllWindows()
+
+def createFolder(directory):
+	if not os.path.exists(directory):
+		os.makedirs(directory)
 
 def getFileExtension(ip):
 	front, back = ip.split('.')
-	return back
+	folder, name = front.split('/')
+	return back, name
 
-def generateEnergyMap(image, file_extension):
+def generateEnergyMap(image, file_extension, file_name):
 	image = cv2.cvtColor(image.astype(np.uint8), cv2.COLOR_BGR2GRAY)
-	writeImage(image, ['gray', file_extension])
+	writeImage(image, ['gray', file_extension, file_name])
 	dx = cv2.Sobel(image, cv2.CV_16S, 1, 0, ksize=3)
 	abs_x = cv2.convertScaleAbs(dx)
 	dy = cv2.Sobel(image, cv2.CV_16S, 0, 1, ksize=3)
 	abs_y = cv2.convertScaleAbs(dy)
 	output = cv2.addWeighted(abs_x, 0.5, abs_y, 0.5, 0)
-	writeImage(output, ['energy', file_extension])
+	writeImage(output, ['energy', file_extension, file_name])
 
 
 def main():
@@ -238,9 +242,11 @@ def main():
 
 
 	image = cv2.imread(_in)
-	file_extension = getFileExtension(_in)
-	print(file_extension)
-	generateEnergyMap(image, file_extension)
+	file_extension, file_name = getFileExtension(_in)
+	print(file_extension + " " + file_name)
+	root = os.getcwd() + str('\\results\\')
+	createFolder(root + file_name)
+	generateEnergyMap(image, file_extension, file_name)
 
 	image_ = image.copy()
 
@@ -249,23 +255,23 @@ def main():
 		#cropbycol
 		if display_seams == 1:
 			seam_image, crop_image = cropByColumn(image, display_seams, scale)
-			writeImage(seam_image, ['column_seams', file_extension])
-			writeImage(crop_image, ['column_cropped', file_extension])
+			writeImage(seam_image, ['column_seams', file_extension, file_name])
+			writeImage(crop_image, ['column_cropped', file_extension, file_name])
 			
 		else:
 			crop_image = cropByColumn(image, display_seams, scale)
-			writeImage(crop_image, ['column_cropped', file_extension])
+			writeImage(crop_image, ['column_cropped', file_extension, file_name])
 
 	elif toggle == 1:
 		#cropbyrow
 		if display_seams == 1:
 			seam_image, crop_image = cropByRow(image, display_seams, scale)
-			writeImage(seam_image, ['row_seams', file_extension])
-			writeImage(crop_image, ['row_cropped', file_extension])
+			writeImage(seam_image, ['row_seams', file_extension, file_name])
+			writeImage(crop_image, ['row_cropped', file_extension, file_name])
 
 		else:
 			crop_image = cropByRow(image, display_seams, scale)
-			writeImage(crop_image, ['row_cropped', file_extension])
+			writeImage(crop_image, ['row_cropped', file_extension, file_name])
 
 	elif toggle == 2:
 		#cropbyrow&column
@@ -273,18 +279,17 @@ def main():
 			seam_col, crop_col = cropByColumn(image, display_seams, scale)
 			seam_row, crop_row = cropByRow(image_, display_seams, scale)
 
-			writeImage(seam_col, ['column_seams', file_extension])
-			writeImage(seam_row, ['row_seams', file_extension])
-			writeImage(crop_col, ['column_cropped', file_extension])
-			writeImage(crop_row, ['row_cropped', file_extension])
+			writeImage(seam_col, ['column_seams', file_extension, file_name])
+			writeImage(seam_row, ['row_seams', file_extension, file_name])
+			writeImage(crop_col, ['column_cropped', file_extension, file_name])
+			writeImage(crop_row, ['row_cropped', file_extension, file_name])
 			
 		else:
 
 			crop_col = cropByColumn(image, display_seams, scale)
 			crop_row = cropByRow(image, display_seams, scale)
-			writeImage(crop_row, ['row_cropped', file_extension])
-			writeImage(crop_col, ['column_cropped', file_extension])
-
+			writeImage(crop_row, ['row_cropped', file_extension, file_name])
+			writeImage(crop_col, ['column_cropped', file_extension, file_name])
 	else:
 		print('Invalid input!')
 		exit()
