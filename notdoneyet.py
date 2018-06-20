@@ -174,22 +174,34 @@ def carve(image):
 	return image
 
 
-def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5):
+def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5, fromRow = 0):
 
 	rows, columns, _ = image.shape
 
 	newcolumns = int(columns * scale_c)
-	
 	crop = image.copy()
+
+	if fromRow == 1:
+		_path = 'row-wise'
+	else:
+		_path = 'col-wise'
 
 	if display_seams == 0:
 		a = 0
-		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\cropseq\\'))
+		gc = 0
+		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\' + _path + '\\cropseq\\'))
 		for i in trange(columns - newcolumns):
 			if generate == 1:
 				crop = carve(crop)
 				if i % 5 == 0:
-					writeImageG(crop, 'cropped_'+str(i), lsit[1], lsit[0], a)
+					if fromRow == 1:
+						_rotate = crop.copy()
+						_rotate = np.rot90(_rotate, 3, (0, 1))
+						writeImageG(_rotate, str(gc)+'. cropped_'+str(i), lsit[1], lsit[0], a, _path)
+						gc += 1
+					else:
+						writeImageG(crop, str(gc)+'. cropped_'+str(i), lsit[1], lsit[0], a)
+						gc += 1
 				else:
 					pass
 			else:
@@ -200,33 +212,48 @@ def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5)
 	else:
 		a = 0
 		b = 1
-		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\seamseq\\'))
-		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\cropseq\\'))
+		gc_img = 0
+		gc_crop = 0
+		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\' + _path + '\\cropseq\\'))
+		createFolder(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\' + _path + '\\seamseq\\'))
 		for i in trange(columns - newcolumns):
 			if generate == 1:
 				#give me a way to parallelize this portion of code :|
 				image = drawSeam(image) 
 				crop = carve(crop)
 				if i % 5 == 0:	
-					writeImageG(image, 'seamed_'+str(i), lsit[1], lsit[0], b)
-					writeImageG(crop, 'cropped_'+str(i), lsit[1], lsit[0], a)
+					if fromRow == 1:
+						_rotate1 = image.copy()
+						_rotate2 = crop.copy()
+						_rotate1 = np.rot90(_rotate1, 3, (0, 1))
+						_rotate2 = np.rot90(_rotate2, 3, (0, 1))
+						writeImageG(_rotate1, str(gc_img)+'. seamed_'+str(i), lsit[1], lsit[0], b, _path)
+						writeImageG(_rotate2, str(gc_crop)+'. cropped_'+str(i), lsit[1], lsit[0], a, _path)
+						gc_img += 1
+						gc_crop += 1
+					else:
+						writeImageG(image,str(gc_img)+'. seamed_'+str(i), lsit[1], lsit[0], b)
+						writeImageG(crop,str(gc_crop)+'. cropped_'+str(i), lsit[1], lsit[0], a)
+						gc_img += 1
+						gc_crop += 1
 				else:
 					pass
 			else:
 				image = drawSeam(image) 
 				crop = carve(crop)
-
+				
 		return image, crop
 
 
 def cropByRow(image, display_seams, generate = 0, lsit = None, scale_r = 0.5):
 
-    image = np.rot90(image, 1, (0, 1))
-    seam_image, crop_image = cropByColumn(image, display_seams, generate, lsit, scale_r)
-    crop_image = np.rot90(crop_image, 3, (0, 1))
-    seam_image = np.rot90(seam_image, 3, (0, 1))
-    
-    return seam_image, crop_image
+	fromRow = 1
+	image = np.rot90(image, 1, (0, 1))
+	seam_image, crop_image = cropByColumn(image, display_seams, generate, lsit, scale_r, fromRow)
+	crop_image = np.rot90(crop_image, 3, (0, 1))
+	seam_image = np.rot90(seam_image, 3, (0, 1))
+
+	return seam_image, crop_image
 
 
 def writeImage(image, args = None):
@@ -234,19 +261,15 @@ def writeImage(image, args = None):
 	cv2.imwrite(name, image)
 	cv2.destroyAllWindows()
 
-
-#if without seams, then only cropped images are flushed to disk
-#if with seam and cropping, then only seam images are flushed to disk
-def writeImageG(image, cname, extension, filename, switch):
+def writeImageG(image, cname, extension, filename, switch, _path = 'col-wise'):
 	if switch == 0:
 		insert = 'cropseq'
 	else:
 		insert = 'seamseq'
 
-	name = 'sequences/' + filename + '/' + insert + '/' + cname + '.' + extension
+	name = 'sequences/' + filename + '/' + _path + '/' + insert + '/' + cname + '.' + extension
 	#print("\n"+str(name))
 	cv2.imwrite(name, image)
-
 
 def createFolder(directory):
 	if not os.path.exists(directory):
@@ -267,6 +290,15 @@ def generateEnergyMap(image, file_extension, file_name):
 	output = cv2.addWeighted(abs_x, 0.5, abs_y, 0.5, 0)
 	writeImage(output, ['energy', file_extension, file_name])
 
+def generateColorMap(image, file_extension, file_name):
+	img = cv2.imread(path, 1)
+	gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+	heatmap1_img = cv2.applyColorMap(gray_img, 3)
+	heatmap2_img = cv2.applyColorMap(gray_img, 11)
+	superimpose1 = cv2.addWeighted(heatmap1_img, 0.7, img, 0.3, 0)
+	superimpose2 = cv2.addWeighted(heatmap2_img, 0.7, img, 0.3, 0)
+	writeImage(superimpose1, ['colormap1', file_extension, file_name])
+	writeImage(superimpose2, ['colormap2', file_extension, file_name])
 
 def main(argsip):
 
@@ -359,3 +391,8 @@ if __name__ == '__main__':
 
 	argsip = parser.parse_args()
 	main(argsip)
+
+
+	#heatmap
+	#colormap
+	#manipulate image temperature 
