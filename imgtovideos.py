@@ -1,60 +1,64 @@
-'''import cv2
-
-desired_size = 368
-im_pth = "/home/jdhao/test.jpg"
-
-im = cv2.imread(im_pth)
-old_size = im.shape[:2] # old_size is in (height, width) format
-
-ratio = float(desired_size)/max(old_size)
-new_size = tuple([int(x*ratio) for x in old_size])
-
-# new_size should be in (width, height) format
-
-im = cv2.resize(im, (new_size[1], new_size[0]))
-
-delta_w = desired_size - new_size[1]
-delta_h = desired_size - new_size[0]
-top, bottom = delta_h//2, delta_h-(delta_h//2)
-left, right = delta_w//2, delta_w-(delta_w//2)
-
-color = [0, 0, 0]
-new_im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT,
-    value=color)
-
-cv2.imshow("image", new_im)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-'''
-
 from natsort import natsorted
 import os
 import cv2
+from pathlib import Path
 
-img_path_test = 'images/fig4.png'
-_mage = cv2.imread(img_path_test)
-print(_mage.shape)
-height = _mage.shape[0]
-width = _mage.shape[1]
+def createFolder(directory):
+	if not os.path.exists(directory):
+		os.makedirs(directory)
 
-dir_path = 'sequences/fig4/col-wise/seamseq/'
-ext = '.png'
-output = 'video.avi'
+def _vid(path):
 
-shape = 640, 540
-fps = 3
+	dir_path = path
+	ext1, ext2 = '.png', '.jpg'
+	opath = str(Path(__file__).resolve().parents[0]) + '\\videos'
+	createFolder(opath)	
+	a, b = dir_path.rsplit('\\', 1)[0], dir_path.rsplit('\\', 1)[1]
+	c, d = a.rsplit('\\', 1)[0], a.rsplit('\\', 1)[1]
+	e, f = c.rsplit('\\', 1)[0], c.rsplit('\\', 1)[1]
+	vid_name = f + '_' + d + '_' + b + '.avi'
+	print(vid_name)
+	op = os.path.join(opath, vid_name)
 
-images = [f for f in os.listdir(dir_path) if f.endswith(ext)]
-images = natsorted(images)
-print(images[0])
+	#exit()
+	shape = 640, 540
+	fps = 5
 
-fourcc = cv2.VideoWriter_fourcc(*'DIVX')
-video = cv2.VideoWriter(output, fourcc, fps, shape)
+	#images = [f for f in os.listdir(dir_path) if f.endswith(ext)]
+	images = []
+	for f in os.listdir(dir_path):
+		if f.endswith(ext1) or f.endswith(ext2):
+			images.append(f)
 
-for image in images:
-    image_path = os.path.join(dir_path, image)
-    image = cv2.imread(image_path)
-    resized=cv2.resize(image,shape) 
-    video.write(resized)
+	images = natsorted(images)
+	print(images[0])
 
-video.release()
+	fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+	video = cv2.VideoWriter(op, fourcc, fps, shape)
+
+	for image in images:
+	    image_path = os.path.join(dir_path, image)
+	    image = cv2.imread(image_path)
+	    resized=cv2.resize(image,shape) 
+	    video.write(resized)
+	video.release()
+
+def getProcessPaths(directory):
+	
+	all_subdirs = [x[0] for x in os.walk(directory)]
+	get = []
+	for i in range(len(all_subdirs)):
+		if all_subdirs[i].endswith('cropseq') or all_subdirs[i].endswith('seamseq'):
+			if all_subdirs[i] not in get:
+				get.append(all_subdirs[i])
+
+	return get
+
+def generateVideo():
+	base_path = str(Path(__file__).resolve().parents[0])
+	base_path += "\sequences\\"
+	allpaths = getProcessPaths(base_path)
+
+	for i in range(len(allpaths)):
+		cpath = allpaths[i]
+		_vid(cpath)

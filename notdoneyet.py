@@ -85,6 +85,7 @@ from scipy.ndimage.filters import convolve
 from tqdm import trange
 from PIL import Image
 from scipy.ndimage import rotate
+import imgtovideos as itv
 
 def getEnergy(image):
 	
@@ -173,7 +174,6 @@ def carve(image):
 	
 	return image
 
-
 def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5, fromRow = 0):
 
 	rows, columns, _ = image.shape
@@ -244,7 +244,6 @@ def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5,
 				
 		return image, crop
 
-
 def cropByRow(image, display_seams, generate = 0, lsit = None, scale_r = 0.5):
 
 	fromRow = 1
@@ -255,11 +254,11 @@ def cropByRow(image, display_seams, generate = 0, lsit = None, scale_r = 0.5):
 
 	return seam_image, crop_image
 
-
 def writeImage(image, args = None):
 	name = 'results/' + str(args[2]) + '/' + str(args[0]) + '.' + str(args[1])
 	cv2.imwrite(name, image)
 	cv2.destroyAllWindows()
+
 
 def writeImageG(image, cname, extension, filename, switch, _path = 'col-wise'):
 	if switch == 0:
@@ -271,9 +270,11 @@ def writeImageG(image, cname, extension, filename, switch, _path = 'col-wise'):
 	#print("\n"+str(name))
 	cv2.imwrite(name, image)
 
+
 def createFolder(directory):
 	if not os.path.exists(directory):
 		os.makedirs(directory)
+
 
 def getFileExtension(ip):
 	front, back = ip.split('.')
@@ -291,7 +292,7 @@ def generateEnergyMap(image, file_extension, file_name):
 	writeImage(output, ['energy', file_extension, file_name])
 
 def generateColorMap(image, file_extension, file_name):
-	img = cv2.imread(path, 1)
+	img = image
 	gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	heatmap1_img = cv2.applyColorMap(gray_img, 3)
 	heatmap2_img = cv2.applyColorMap(gray_img, 11)
@@ -315,6 +316,7 @@ def main(argsip):
 	root = os.getcwd() + str('\\results\\')
 	createFolder(root + file_name)
 	generateEnergyMap(image, file_extension, file_name)
+	generateColorMap(image, file_extension, file_name)
 	image_ = image.copy()
 	lsit = [file_name, file_extension]
 
@@ -345,14 +347,12 @@ def main(argsip):
 		if display_seams == 1:
 			seam_col, crop_col = cropByColumn(image, display_seams, g, lsit, scale)
 			seam_row, crop_row = cropByRow(image_, display_seams, g, lsit, scale)
-
 			writeImage(seam_col, ['column_seams', file_extension, file_name])
 			writeImage(seam_row, ['row_seams', file_extension, file_name])
 			writeImage(crop_col, ['column_cropped', file_extension, file_name])
 			writeImage(crop_row, ['row_cropped', file_extension, file_name])
 			
 		else:
-
 			crop_col = cropByColumn(image, display_seams, g, scale)
 			crop_row = cropByRow(image, display_seams, g, scale)
 			writeImage(crop_row, ['row_cropped', file_extension, file_name])
@@ -360,6 +360,8 @@ def main(argsip):
 	else:
 		print('Invalid input!')
 		exit()
+
+	itv.generateVideo()
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
@@ -376,7 +378,7 @@ if __name__ == '__main__':
 
 	parser.add_argument('-d',
 						type = int,
-						help = "Display Seams or not : (0/1)",
+						help = "Display Seams or not : (1/0)",
 						required = True)
 
 	parser.add_argument('-i',
@@ -386,13 +388,8 @@ if __name__ == '__main__':
 
 	parser.add_argument('-g',
 						type = int,
-						help = "Generate video from sequence of images : (0/1)",
+						help = "Generate sequences of image or not : (1/0)",
 						required = False)
 
 	argsip = parser.parse_args()
 	main(argsip)
-
-
-	#heatmap
-	#colormap
-	#manipulate image temperature 
