@@ -1,17 +1,21 @@
 ## Content Aware Image Resizing
 -------------------------------
 
+Working and explanation details to be updated soon.  
+
 ### Todo:
 ---------
 
-- [x] Seam DP 
-- [x] Get Vertical Seams 
-- [x] Get Horizontal Seams 
+- [x] Implement Seam Algorithm
+- [x] Generate energy maps and color maps for image
+- [x] Display Vertical Seams 
+- [x] Display Horizontal Seams 
 - [x] Crop Columns 
 - [x] Crop Rows 
-- [x] Use Argparse for Command Line Application 
+- [x] Use argparse for Command Line Application 
 - [x] Store subsamples in different directories for crop and seam respectively 
-- [ ] Generate video/gif from sub-samples 
+- [x] Generate video/gif from sub-samples 
+- [ ] Organise code for production
 - [ ] Deploy as module
 
 ### Notes:
@@ -27,22 +31,26 @@
 
 #### Results for Image 1:  
 
-## ![Result0](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/images/fig4.png)  
-## ![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig4/gray.png)  
-## ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig4/energy.png)    
-## ![Result3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig4/column_seams.png)  
-## ![Result4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig4/column_cropped.png)    
-## ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig4/row_seams.png)  
-## ![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig4/row_cropped.png)  
+## ![Result0](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/images/fig4.png)  
+## ![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/gray.png)  
+## ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/energy.png)    
+## ![Result3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/colormap1.jpg)  
+## ![Result4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/colormap2.jpg)  
+## ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/column_seams.png)  
+## ![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/column_cropped.png)    
+## ![Result7](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/row_seams.png)  
+## ![Result8](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/row_cropped.png)  
 
 #### Results for Image 2:  
 
-## ![Result0](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/images/fig9.jpg)  
-## ![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig9/gray.jpg)  
-## ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig9/energy.jpg)  
-## ![Result3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig9/column_seams.jpg)  
-## ![Result4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig9/column_cropped.jpg)      
-## ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig9/row_seams.jpg)  
-## ![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/24aaaf22/results/fig9/row_cropped.jpg)    
+## ![Result0](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/images/fig13.jpg)  
+## ![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/gray.jpg)  
+## ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/energy.jpg)  
+## ![Result3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/colormap1.jpg)  
+## ![Result4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/colormap2.jpg)  
+## ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/column_seams.jpg)  
+## ![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/column_cropped.jpg)      
+## ![Result7](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/row_seams.jpg)  
+## ![Result8](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/row_cropped.jpg)    
 
 
