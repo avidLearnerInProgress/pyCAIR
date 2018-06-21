@@ -15,8 +15,7 @@ Working and explanation details to be updated soon.
 - [x] Use argparse for Command Line Application 
 - [x] Store subsamples in different directories for crop and seam respectively 
 - [x] Generate video/gif from sub-samples 
-- [ ] Organise code for production
-- [ ] Deploy as module
+
 
 ### Notes:
 ---------
