@@ -26,6 +26,13 @@ Working and explanation details to be updated soon.
 ## ![Notes3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/06ce7c6e/notes/notes3.png)  
 ## ![Notes4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/06ce7c6e/notes/notes4.png)  
 
+### In Action:
+--------------
+
+[![Video1](https://ibb.co/kJVZ28)](https://youtu.be/PXYryvF7moE "Video1")  
+[![Video2](https://ibb.co/jba6FT)](https://youtu.be/fH21N4MBN3k "Video2")  
+
+
 ### Screenshots:
 ----------------
 
