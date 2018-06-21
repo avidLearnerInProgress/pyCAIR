@@ -33,6 +33,7 @@ Working and explanation details to be updated soon.
 
 [![Video2](https://cdn.pbrd.co/images/HqSWjpq.png)](https://www.youtube.com/watch?v=fH21N4MBN3k)  
 
+- [Playlist](https://www.youtube.com/playlist?list=PL7k5xCepzh7o2kF_FMh4P9tZgALoAx48N)
 
 ### Screenshots:
 ----------------
