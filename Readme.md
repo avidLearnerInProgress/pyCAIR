@@ -117,3 +117,7 @@
 |:---:|:---:|
 | Seams for Rows | Rows Cropped |  
 
+### License:
+------------
+
+This software is licensed under the [GNU General Public License v3.0](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/LICENSE) license  
