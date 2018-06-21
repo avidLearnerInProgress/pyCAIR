@@ -1,8 +1,6 @@
 ## Content Aware Image Resizing
 -------------------------------
 
-Working and explanation details to be updated soon.  
-
 ### Todo:
 ---------
 
