@@ -29,8 +29,8 @@ Working and explanation details to be updated soon.
 ### In Action:
 --------------
 
-[![Video1](https://ibb.co/kJVZ28)](https://youtu.be/PXYryvF7moE "Video1")  
-[![Video2](https://ibb.co/jba6FT)](https://youtu.be/fH21N4MBN3k "Video2")  
+[![Video1](https://imgur.com/a/JeQxV3b)](https://youtu.be/PXYryvF7moE)  
+[![Video2](https://imgur.com/a/53qQxKH)](https://youtu.be/fH21N4MBN3k)  
 
 
 ### Screenshots:
