@@ -29,7 +29,9 @@ Working and explanation details to be updated soon.
 ### In Action:
 --------------
 
-[![Video1](http://imgur.com/a/JeQxV3b)](https://youtube.com/watch?v=PXYryvF7moE)  
+[![Video1](https://cdn.pbrd.co/images/HqSW5C0.png)](https://youtube.com/watch?v=PXYryvF7moE)  
+
+[![Video2](https://cdn.pbrd.co/images/HqSWjpq.png)](https://www.youtube.com/watch?v=fH21N4MBN3k)  
 
 
 ### Screenshots:
