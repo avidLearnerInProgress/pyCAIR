@@ -31,7 +31,7 @@ Working and explanation details to be updated soon.
 
 #### Results for Image 1:
 
-| ![Result0](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/images/<figure></figure>4.png)  | [![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/gray.png) | ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/energy.png) |
+| ![Result0](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/images/fig4.png)  | ![Result1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/gray.png) | ![Result2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig4/energy.png) |
 |:---:|:---:|:---:|
 | Original Image | Grayscale | Energy Map |  
 
@@ -57,7 +57,7 @@ Working and explanation details to be updated soon.
 |:---:|:---:|
 | Color Map Winter | Color Map Hot |  
 
-| ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/column_seams.jpg)  |![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/columns_cropped.jpg) |
+| ![Result5](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/column_seams.jpg)  |![Result6](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/0fc66d01/results/fig13/column_cropped.jpg) |
 |:---:|:---:|
 | Seams for Columns | Columns Cropped |  
 
