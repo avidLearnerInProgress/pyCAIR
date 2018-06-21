@@ -23,14 +23,6 @@
 ## ![Notes3](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/06ce7c6e/notes/notes3.png)  
 ## ![Notes4](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/06ce7c6e/notes/notes4.png)  
 
-### In Action:
---------------
-
-[![Video1](https://cdn.pbrd.co/images/HqSW5C0.png)](https://youtube.com/watch?v=PXYryvF7moE)  
-
-[![Video2](https://cdn.pbrd.co/images/HqSWjpq.png)](https://www.youtube.com/watch?v=fH21N4MBN3k)  
-
-- [Playlist](https://www.youtube.com/playlist?list=PL7k5xCepzh7o2kF_FMh4P9tZgALoAx48N)  
 
 ### Explanation:
 ---------------
@@ -75,6 +67,15 @@
 1. Implement Object Oriented paradigms
 2. Optimize code: Many operations are bruteforce, if there are more better optimized methods; I would love to implement them
 3. Implement multithreading wherever possible to improve the computation speed.
+
+### In Action:
+--------------
+
+[![Video1](https://cdn.pbrd.co/images/HqSW5C0.png)](https://youtube.com/watch?v=PXYryvF7moE)  
+
+[![Video2](https://cdn.pbrd.co/images/HqSWjpq.png)](https://www.youtube.com/watch?v=fH21N4MBN3k)  
+
+- [Playlist](https://www.youtube.com/playlist?list=PL7k5xCepzh7o2kF_FMh4P9tZgALoAx48N)  
 
 
 ### Screenshots:
