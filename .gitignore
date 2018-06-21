@@ -2,3 +2,4 @@ pyCAIR/sequences/
 build/
 pyCAIR.egg-info/
 Readme.txt
+dist/
