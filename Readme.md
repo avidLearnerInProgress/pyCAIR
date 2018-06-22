@@ -1,6 +1,8 @@
 ## Content Aware Image Resizing
 -------------------------------
 
+Project published on PyPI. You can do `pip install pyCAIR` to install the latest module.
+
 ### Todo:
 ---------
 
