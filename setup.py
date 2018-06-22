@@ -1,15 +1,18 @@
 from distutils.core import setup
 import setuptools
 
-with open('README.rst') as file:
-    long_description = file.read()
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = open('README.md').read()
 
 python_requires = '>3.4'
     
 setup(
   name = 'pyCAIR',
   packages = ['pyCAIR'],
-  version = '0.1.11',
+  version = '0.1.12',
   description = ' This module provides a simple yet powerful mechanism to resize images using Seam Carving Algorithm.',
   long_description = long_description,
   long_description_content_type="text/markdown",
