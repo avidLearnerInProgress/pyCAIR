@@ -1,18 +1,15 @@
 from natsort import natsorted
-import os
-import cv2
+import os,cv2
 from pathlib import Path
 
-def createFolder(directory):
-	if not os.path.exists(directory):
-		os.makedirs(directory)
+from pyCAIR.helpers import createFolder as cF
 
-def _vid(path):
+def vid(path):
 
 	dir_path = path
 	ext1, ext2 = '.png', '.jpg'
 	opath = str(Path(__file__).resolve().parents[0]) + '\\videos'
-	createFolder(opath)	
+	cF(opath)	
 	a, b = dir_path.rsplit('\\', 1)[0], dir_path.rsplit('\\', 1)[1]
 	c, d = a.rsplit('\\', 1)[0], a.rsplit('\\', 1)[1]
 	e, f = c.rsplit('\\', 1)[0], c.rsplit('\\', 1)[1]
@@ -43,7 +40,7 @@ def _vid(path):
 	    video.write(resized)
 	video.release()
 
-def getProcessPaths(directory):
+def getToProcessPaths(directory):
 	
 	all_subdirs = [x[0] for x in os.walk(directory)]
 	get = []
@@ -57,8 +54,8 @@ def getProcessPaths(directory):
 def generateVideo():
 	base_path = str(Path(__file__).resolve().parents[0])
 	base_path += "\sequences\\"
-	allpaths = getProcessPaths(base_path)
+	allpaths = getToProcessPaths(base_path)
 
 	for i in range(len(allpaths)):
 		cpath = allpaths[i]
-		_vid(cpath)
+		vid(cpath)
