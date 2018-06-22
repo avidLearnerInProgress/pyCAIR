@@ -12,7 +12,12 @@
 - [x] Crop Rows 
 - [x] Use argparse for Command Line Application 
 - [x] Store subsamples in different directories for crop and seam respectively 
-- [x] Generate video/gif from sub-samples 
+- [x] Generate video/gif from sub-samples  
+- [ ] Provide a better Readme
+- [ ] Generate unittests for each functions
+- [ ] Provide examples for all the entry points
+- [ ] Provide better project description on PyPI
+- [ ] Documentation using Spinx
 
 
 ### Notes:
@@ -62,11 +67,6 @@
    * **getProcessPaths()** \- returns list of all sub-directories within a base path with certain conditions.
    * **createFolder()** \- self explanatory 
 
-**Remaining todos:**
-
-1. Implement Object Oriented paradigms
-2. Optimize code: Many operations are bruteforce, if there are more better optimized methods; I would love to implement them
-3. Implement multithreading wherever possible to improve the computation speed.
 
 ### In Action:
 --------------
