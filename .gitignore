@@ -3,3 +3,4 @@ build/
 pyCAIR.egg-info/
 Readme.txt
 dist/
+pyCAIR/__pycache__/
