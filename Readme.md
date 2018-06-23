@@ -47,16 +47,16 @@ pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving fo
 
 **Directory structure:**
 
-**pyCAIR** (root directory)
-	| - images/  
-	| - results /   
-	| - sequences/ (zipped in repository)  
-	| - videos/  
-	| - [notdoneyet.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/notdoneyet.py)  
-	| - [imgtovideos.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/imgtovideos.py)  
-	| - [opencv_generators.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/opencv_generators.py)  
-	| - [seam_carve.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/seam_carve.py)  
-	| - [helpers.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/helpers.py)  
+**pyCAIR** (root directory)  
+&nbsp; 	| - images/  
+&nbsp; 	| - results /   
+&nbsp; 	| - sequences/ (zipped in repository)  
+&nbsp; 	| - videos/  
+&nbsp; 	| - [notdoneyet.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/notdoneyet.py)  
+&nbsp; 	| - [imgtovideos.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/imgtovideos.py)  
+&nbsp; 	| - [opencv_generators.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/opencv_generators.py)  
+&nbsp; 	| - [seam_carve.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/seam_carve.py)  
+&nbsp; 	| - [helpers.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/helpers.py)  
 
 **File:** [notdoneyet.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/notdoneyet.py)
 
