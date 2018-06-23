@@ -1,6 +1,4 @@
-# pyCAIR
-
-<h1 align="center"><img alt="pyCAIR Logo" src="" width="320"></h1>
+<h1 align="center"><img alt="pyCAIR Logo" src="https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/e11bbea2/others/logo.jpg" width="250"></h1>
 
 pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving for Content-Aware Image Resizing](http://http://graphics.cs.cmu.edu/courses/15-463/2012_fall/hw/proj3-seamcarving/imret.pdf "Seam Carving for Content-Aware Image Resizing") paper.
 
