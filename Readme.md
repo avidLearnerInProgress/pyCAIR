@@ -3,14 +3,15 @@
 pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving for Content-Aware Image Resizing](http://http://graphics.cs.cmu.edu/courses/15-463/2012_fall/hw/proj3-seamcarving/imret.pdf "Seam Carving for Content-Aware Image Resizing") paper.
 
 ## Table of Contents
-1. [How CAIR works](#How does it work)
-2. [Understanding the research paper](#Intutive explanation of research paper)
-3. [Project structure and explanation](#Project structure and explanation)
-4. [Installation](#Installation)
-5. [Usage](#Usage)
-6. [Demo](#In action)
-7. [Screenshots](#Screenshots)
-8. [Todo](#Todo)
+https://github.com/avidLearnerInProgress/pyCAIR#how-does-it-work
+1. [How CAIR works](#how-does-it-work)
+2. [Understanding the research paper](#intutive-explanation-of-research-paper)
+3. [Project structure and explanation](#project-structure-and-explanation)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Demo](#in-action)
+7. [Screenshots](#screenshots)
+8. [Todo](#todo)
 
 
 ## How does it work
@@ -27,10 +28,9 @@ pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving fo
 
 - Repeat the process iteratively until the image is resized depending on user specified ratio.
 
-> | ![Algorithm](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/c4692303/others/algorithm.png)  | ![Backtracking](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/c4692303/others/backtracking.png) |
+| ![Result7](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/c4692303/others/algorithm.png)  | ![Result8](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/c4692303/others/backtracking.png) |
 |:---:|:---:|
-|  DP matrix | Backtracking with minimum energy | 
-
+| DP Matrix | Backtracking with minimum energy |
 
 ## Intutive explanation of research paper
 
