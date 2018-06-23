@@ -61,7 +61,7 @@ pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving fo
 **File:** [notdoneyet.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/notdoneyet.py)
 
 - **user_input()** -  
-#####Parameters:
+Parameters:
 	- Alignment: Specify on which axis the resizing operation has to be performed.
 	- Scale Ratio: Floating point operation between 0 and 1 to scale the output image.
 	- Display Seam: If this option isn't selected, the image is only seamed in background. 
@@ -70,9 +70,9 @@ pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving fo
 
 **File:** [imgtovideos.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/imgtovideos.py)
 
-- **generateVideo()** - pass each image path to **vid()** for video generation
+- **generateVideo()** - pass each image path to **vid()** for video generation.
 
-- **vid() **- writes each input image to video buffer for creating a complete video
+- **vid() **- writes each input image to video buffer for creating a complete video.
 
 **File:** [opencv_generators.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/opencv_generators.py)
 
@@ -103,6 +103,18 @@ pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving fo
 - **createFolder() -** self explanatory
 
 - **getFileExtension() -** self explanatory
+
+**Other folders:**
+
+- **images/** - stores the input images for testing.
+
+- **videos/** - stores the videos generated from the intermediate sequences.
+
+- **results/** - stores the final results.
+
+- **sequences/** - stores the intermediate sequences generated.
+
+
 
 ## Installation
 
@@ -182,7 +194,6 @@ f = writeImage(image, args)
 
 - [Playlist](https://www.youtube.com/playlist?list=PL7k5xCepzh7o2kF_FMh4P9tZgALoAx48N)  
 
-
 ## Screenshots
 
 #### Results for Image 1:
@@ -232,7 +243,7 @@ f = writeImage(image, args)
 - [x] Use argparse for Command Line Application 
 - [x] Store subsamples in different directories for crop and seam respectively 
 - [x] Generate video/gif from sub-samples  
-- [ ] Provide a better Readme
+- [x] Provide a better Readme
 - [ ] Generate unittests for each functions
 - [ ] Provide examples for all the entry points
 - [ ] Provide better project description on PyPI
