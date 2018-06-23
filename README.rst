@@ -1,6 +1,6 @@
 <h1 align="center"><img alt="pyCAIR Logo" src="https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/e11bbea2/others/logo.jpg" width="250"></h1>
 
-pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving for Content-Aware Image Resizing](http://http://graphics.cs.cmu.edu/courses/15-463/2012_fall/hw/proj3-seamcarving/imret.pdf "Seam Carving for Content-Aware Image Resizing") paper.
+pyCAIR is a content-aware image resizing(CAIR) [library](https://pypi.org/project/pyCAIR/) based on [Seam Carving for Content-Aware Image Resizing](http://http://graphics.cs.cmu.edu/courses/15-463/2012_fall/hw/proj3-seamcarving/imret.pdf "Seam Carving for Content-Aware Image Resizing") paper.
 
 ## Table of Contents
 
@@ -44,8 +44,6 @@ pyCAIR is a content-aware image resizing(CAIR) library based on [Seam Carving fo
 
 
 ## Project structure and explanation
-
-**Directory structure:**
 
 **Directory structure:**
 
@@ -246,10 +244,16 @@ f = writeImage(image, args)
 - [x] Store subsamples in different directories for crop and seam respectively 
 - [x] Generate video/gif from sub-samples  
 - [x] Provide a better Readme
+- [x] Provide examples for usage
 - [ ] Generate unittests for each functions
-- [ ] Provide examples for all the entry points
+- [ ] Add Continous Integration Services(Travis, Coveralls)
+- [ ] Add badges
 - [ ] Provide better project description on PyPI
 - [ ] Documentation using Spinx
+- [ ] Integrate object detection using YOLOv2 
+- [ ] Identify most important object (using probability of predicted object)
+- [ ] Invert energy values of most important object
+- [ ] Re-apply Seam Carve and compare results
 
 ## License
 
