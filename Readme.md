@@ -188,11 +188,11 @@ f = writeImage(image, args)
 
 ## In Action
 
-- ![Gif1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/5eb764fd/others/fig13_col-wise_seamseq.gif)  
+> ![Gif1](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/5eb764fd/others/fig13_col-wise_seamseq.gif)  
 
-- ![Gif2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/5eb764fd/others/fig4_col-wise_seamseq.gif)  
+> ![Gif2](https://cdn.rawgit.com/avidLearnerInProgress/pyCAIR/5eb764fd/others/fig4_col-wise_seamseq.gif)  
 
-- [Video Playlist](https://www.youtube.com/playlist?list=PL7k5xCepzh7o2kF_FMh4P9tZgALoAx48N)  
+> [Video Playlist](https://www.youtube.com/playlist?list=PL7k5xCepzh7o2kF_FMh4P9tZgALoAx48N)  
 
 ## Screenshots
 
