@@ -245,8 +245,6 @@ f = writeImage(image, args)
 - [x] Generate video/gif from sub-samples  
 - [x] Provide a better Readme
 - [x] Provide examples for usage
-- [ ] Generate unittests for each functions
-- [ ] Add Continous Integration Services(Travis, Coveralls)
 - [ ] Add badges
 - [ ] Provide better project description on PyPI
 - [ ] Documentation using Spinx
