@@ -72,13 +72,13 @@ Parameters:
 
 - **generateVideo()** - pass each image path to **vid()** for video generation.
 
-- **vid() **- writes each input image to video buffer for creating a complete video.
+- **vid()**- writes each input image to video buffer for creating a complete video.
 
 **File:** [opencv_generators.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/opencv_generators.py)
 
  - **generateEnergyMap()** - utilised OpenCV inbuilt functions for obtaining energies and converting image to grayscale.
  
- - **generateColorMap() ** - utilised OpenCV inbuilt functions to superimpose heatmaps on the given image.
+ - **generateColorMap()** - utilised OpenCV inbuilt functions to superimpose heatmaps on the given image.
 
 **File:** [seam_carve.py](https://github.com/avidLearnerInProgress/pyCAIR/blob/master/pyCAIR/seam_carve.py)
 
@@ -100,9 +100,9 @@ Parameters:
 
 - **writeImageG()** - stores intermediate generated sequence of images in sequences directory.
 
-- **createFolder() -** self explanatory
+- **createFolder()** - self explanatory
 
-- **getFileExtension() -** self explanatory
+- **getFileExtension()** - self explanatory
 
 **Other folders:**
 
