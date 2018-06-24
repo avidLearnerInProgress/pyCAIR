@@ -1,0 +1,11 @@
+language: python
+
+python:
+  - "3.4"
+
+script: python -m unittest -v pyCAIR/tests/__tests.py
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
