@@ -78,4 +78,6 @@ def user_input(alignment = 0, scale = 0.5, display_seam = 1, image = 'images/fig
 	argsip.append(display_seam)
 	argsip.append(image)
 	argsip.append(generate)
-	main(argsip)
+
+	return len(argsip)
+	#main(argsip)
