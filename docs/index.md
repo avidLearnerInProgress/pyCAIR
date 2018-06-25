@@ -3,12 +3,13 @@
 pyCAIR is a content-aware image resizing(CAIR) [library](https://pypi.org/project/pyCAIR/) based on [Seam Carving for Content-Aware Image Resizing](http://http://graphics.cs.cmu.edu/courses/15-463/2012_fall/hw/proj3-seamcarving/imret.pdf "Seam Carving for Content-Aware Image Resizing") paper.
 
 ------------
-
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 [![PyPI version](https://badge.fury.io/py/pyCAIR.svg)](https://badge.fury.io/py/pyCAIR)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Documentation Status](//readthedocs.org/projects/pycair/badge/?version=latest)](https://pycair.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/pycair/badge/?version=latest)](https://pycair.readthedocs.io/en/latest/?badge=latest)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://github.com/avidLearnerInProgress/pyCAIR)
 [![Code Health](https://landscape.io/github/avidLearnerInProgress/pyCAIR/master/landscape.svg?style=flat)](https://landscape.io/github/avidLearnerInProgress/pyCAIR/master)
+
 
 -----------
 
