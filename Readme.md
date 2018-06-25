@@ -6,7 +6,11 @@ pyCAIR is a content-aware image resizing(CAIR) [library](https://pypi.org/projec
 
 [![PyPI version](https://badge.fury.io/py/pyCAIR.svg)](https://badge.fury.io/py/pyCAIR)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Documentation Status](//readthedocs.org/projects/pycair/badge/?version=latest)](https://pycair.readthedocs.io/en/latest/?badge=latest)
+
+<a href='https://pycair.readthedocs.io/en/latest/?badge=latest'>
+    <img src='//readthedocs.org/projects/pycair/badge/?version=latest' alt='Documentation Status' />
+</a>
+                
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://github.com/avidLearnerInProgress/pyCAIR)
 [![Code Health](https://landscape.io/github/avidLearnerInProgress/pyCAIR/master/landscape.svg?style=flat)](https://landscape.io/github/avidLearnerInProgress/pyCAIR/master)
 
