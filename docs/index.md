@@ -244,26 +244,6 @@ f = writeImage(image, args)
 |:---:|:---:|
 | Seams for Rows | Rows Cropped |  
 
-## Todo
-
-- [x] Implement Seam Algorithm
-- [x] Generate energy maps and color maps for image
-- [x] Display Vertical Seams 
-- [x] Display Horizontal Seams 
-- [x] Crop Columns 
-- [x] Crop Rows 
-- [x] Use argparse for Command Line Application 
-- [x] Store subsamples in different directories for crop and seam respectively 
-- [x] Generate video/gif from sub-samples  
-- [x] Provide a better Readme
-- [x] Provide examples for usage
-- [ ] Add badges
-- [ ] Provide better project description on PyPI
-- [ ] Documentation using Spinx
-- [ ] Integrate object detection using YOLOv2 
-- [ ] Identify most important object (using probability of predicted object)
-- [ ] Invert energy values of most important object
-- [ ] Re-apply Seam Carve and compare results
 
 ## License
 
