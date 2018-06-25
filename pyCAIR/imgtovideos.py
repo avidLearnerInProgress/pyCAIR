@@ -12,7 +12,7 @@ def vid(path):
 	cF(opath)	
 	a, b = dir_path.rsplit('\\', 1)[0], dir_path.rsplit('\\', 1)[1]
 	c, d = a.rsplit('\\', 1)[0], a.rsplit('\\', 1)[1]
-	e, f = c.rsplit('\\', 1)[0], c.rsplit('\\', 1)[1]
+	_, f = c.rsplit('\\', 1)[0], c.rsplit('\\', 1)[1]
 	vid_name = f + '_' + d + '_' + b + '.avi'
 	print(vid_name)
 	op = os.path.join(opath, vid_name)

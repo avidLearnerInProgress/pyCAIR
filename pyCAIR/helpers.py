@@ -6,7 +6,7 @@ def createFolder(directory):
 
 def getFileExtension(ip):
 	front, back = ip.split('.')
-	folder, name = front.split('/')
+	_, name = front.split('/')
 	return back, name
 
 def writeImage(image, args):
