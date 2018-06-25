@@ -258,9 +258,9 @@ f = writeImage(image, args)
 - [x] Generate video/gif from sub-samples  
 - [x] Provide a better Readme
 - [x] Provide examples for usage
-- [ ] Add badges
-- [ ] Provide better project description on PyPI
-- [ ] Documentation using Spinx
+- [x] Add badges
+- [x] Provide better project description on PyPI
+- [x] Documentation
 - [ ] Integrate object detection using YOLOv2 
 - [ ] Identify most important object (using probability of predicted object)
 - [ ] Invert energy values of most important object
