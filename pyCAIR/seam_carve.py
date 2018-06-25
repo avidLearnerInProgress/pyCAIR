@@ -5,7 +5,6 @@ from scipy.ndimage.filters import convolve
 from tqdm import trange
 
 from pyCAIR.helpers import createFolder as cF
-from pyCAIR.helpers import writeImage as wI
 from pyCAIR.helpers import writeImageG as wIG
 
 def getEnergy(image):
