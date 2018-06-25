@@ -4,4 +4,8 @@ pyCAIR.egg-info/
 Readme.txt
 dist/
 pyCAIR/__pycache__
-travis.yml
+.travis.yml
+docs/_build
+docs/_static
+docs/_templates
+
