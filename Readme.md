@@ -261,7 +261,7 @@ f = writeImage(image, args)
 - [x] Add badges
 - [x] Provide better project description on PyPI
 - [x] Documentation
-- [ ] Integrate object detection using YOLOv2 
+- [ ] Integrate object detection using YOLOv2 (work in progress.)
 - [ ] Identify most important object (using probability of predicted object)
 - [ ] Invert energy values of most important object
 - [ ] Re-apply Seam Carve and compare results
