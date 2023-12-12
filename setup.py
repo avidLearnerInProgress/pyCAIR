@@ -13,7 +13,7 @@ python_requires = '>3.4'
 setup(
     name='pyCAIR',
     packages=['pyCAIR'],
-    version='0.1.13',
+    version='0.1.14',
     description='This module provides a simple yet powerful mechanism to resize images using Seam Carving Algorithm.',
     long_description=long_description,
     long_description_content_type='text/markdown',

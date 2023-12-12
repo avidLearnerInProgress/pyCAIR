@@ -94,7 +94,7 @@ def carve(image):
 	
 	return image
 
-def cropByColumn(image, display_seams, generate = 0, lsit = ['my_image', '.jpg'], scale_c = 0.5, fromRow = 0):
+def cropByColumn(image, display_seams, generate = 0, lsit = ['my_image', 'jpg'], scale_c = 0.5, fromRow = 0):
 	'''
 	Parameters:
 		image: numpy array of image
