@@ -38,7 +38,7 @@ def getMaps(image):
 	energy_map = getEnergy(image)
 
 	current_map = energy_map.copy()
-	goback = np.zeros_like(current_map, dtype = np.int)
+	goback = np.zeros_like(current_map, dtype = int)
 
 	for i in range(1, rows):
 		for j in range(0, columns):
@@ -61,7 +61,7 @@ def drawSeam(image):
 	rows, columns, _ = image.shape
 	cMap, goback = getMaps(image)
 
-	mask = np.ones((rows, columns), dtype = np.bool)
+	mask = np.ones((rows, columns), dtype = bool)
 
 	j = np.argmin(cMap[-1])
 
@@ -81,7 +81,7 @@ def carve(image):
 	rows, columns, _ = image.shape
 	cMap, goback = getMaps(image)
 
-	mask = np.ones((rows, columns), dtype = np.bool)
+	mask = np.ones((rows, columns), dtype = bool)
 
 	j = np.argmin(cMap[-1])
 
@@ -94,8 +94,20 @@ def carve(image):
 	
 	return image
 
-def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5, fromRow = 0):
+def cropByColumn(image, display_seams, generate = 0, lsit = ['my_image', 'jpg'], scale_c = 0.5, fromRow = 0):
+	'''
+	Parameters:
+		image: numpy array of image
+		display_seams: 0 or 1
+		generate: 0 or 1
+		lsit: list of image name and extension - ['my_image', '.jpg']
+		scale_c: scale factor for columns
+		fromRow: 0 or 1
 
+	Returns:
+		image: numpy array of image
+		crop: numpy array of cropped image
+	'''
 	rows, columns, _ = image.shape
 
 	newcolumns = int(columns * scale_c)
@@ -109,7 +121,7 @@ def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5,
 	if display_seams == 0:
 		a = 0
 		gc = 0
-		cF(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\' + _path + '\\cropseq\\'))
+		cF(os.getcwd() + str('/sequences/' + lsit[0] + '/' + _path + '/cropseq/'))
 		for i in trange(columns - newcolumns):
 			if generate == 1:
 				crop = carve(crop)
@@ -134,8 +146,8 @@ def cropByColumn(image, display_seams, generate = 0, lsit = None, scale_c = 0.5,
 		b = 1
 		gc_img = 0
 		gc_crop = 0
-		cF(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\' + _path + '\\cropseq\\'))
-		cF(os.getcwd() + str('\\sequences\\' + lsit[0] + '\\' + _path + '\\seamseq\\'))
+		cF(os.getcwd() + str('/sequences/' + lsit[0] + '/' + _path + '/cropseq/'))
+		cF(os.getcwd() + str('/sequences/' + lsit[0] + '/' + _path + '/seamseq/'))
 		for i in trange(columns - newcolumns):
 			if generate == 1:
 				#give me a way to parallelize this portion of code :|
